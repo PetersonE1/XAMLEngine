@@ -54,9 +54,10 @@ namespace XAMLEngine
             Manager.t_end = EndBox;
             Manager.t_high = HighScoreBox;
             Manager.b_end = EndButton;
-            Score.scoreBox = ScoreBox;
+            Manager.t_score = ScoreBox;
 
             Persistents.Initialize();
+            Score.Initialize();
             Application.Current.Exit += Persistents.OnQuit;
 
             // Begin Game loop

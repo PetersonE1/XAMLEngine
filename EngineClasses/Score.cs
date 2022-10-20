@@ -9,32 +9,27 @@ namespace XAMLEngine
 {
     public static class Score
     {
-        public static TextBox scoreBox;
+        private static TextBox scoreBox;
         public static int score = 0;
+
+        public static void Initialize()
+        {
+            scoreBox = Manager.t_score;
+        }
 
         private static void UpdateScore()
         {
             scoreBox.Text = $@"Score: {score}";
         }
 
-        public static int IncreaseScore()
-        {
-            return IncreaseScore(1);
-        }
-
-        public static int IncreaseScore(int value)
+        public static int IncreaseScore(int value = 1)
         {
             score += value;
             Manager.Invoke(UpdateScore);
             return score;
         }
 
-        public static int DecreaseScore()
-        {
-            return DecreaseScore(1);
-        }
-
-        public static int DecreaseScore(int value)
+        public static int DecreaseScore(int value = 1)
         {
             score -= value;
             Manager.Invoke(UpdateScore);

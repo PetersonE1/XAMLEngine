@@ -16,7 +16,6 @@ namespace XAMLEngine
 
         public TriggerBox(Action<Entity> enter, Action<Entity> leave, Action<Entity> stay)
         {
-            Debug.WriteLine("New Trigger");
             TriggerEnter = enter;
             TriggerLeave = leave;
             TriggerStay = stay;

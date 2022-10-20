@@ -19,6 +19,7 @@ namespace XAMLEngine
         public static Random? random;
         public static Canvas? canvas;
         public static TextBox t_end;
+        public static TextBox t_score;
         public static TextBox t_high;
         public static Button b_end;
 
@@ -46,7 +47,6 @@ namespace XAMLEngine
         {
             foreach (Entity entity in entities)
             {
-                entity.OnDisable();
                 entity.SetActive(false);
             }
             t_end.IsEnabled = true;

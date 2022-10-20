@@ -15,9 +15,9 @@ namespace XAMLEngine
         public static void Initialize()
         {
             data = new Dictionary<string, string>();
-            if (!File.Exists("save_data.jc"))
+            if (!File.Exists("save_data.enginedata"))
                 return;
-            string raw_data = File.ReadAllText("save_data.jc");
+            string raw_data = File.ReadAllText("save_data.enginedata");
             if (raw_data != null && raw_data.Length > 0)
             {
                 foreach (string[] entry in raw_data.Split(';').Select(s => s.Split(',')).ToArray())
