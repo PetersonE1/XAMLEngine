@@ -1,0 +1,20 @@
+﻿<Window x:Class="XAMLEngine.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EngineBase"
+        mc:Ignorable="d"
+        Loaded="ScreenLoaded"
+        MouseLeftButtonDown="OnMouseDown"
+        MouseLeftButtonUp="OnMouseUp"
+        KeyDown="OnKeyDown"
+        KeyUp="OnKeyUp"
+        Title="MainWindow" Height="450" Width="800">
+    <Canvas Background="Gray" Name="canvasArea">
+        <TextBox Focusable="False" Text="Score: 0" Name="ScoreBox" Panel.ZIndex="999"></TextBox>
+        <TextBox IsEnabled="False" Visibility="Hidden" Focusable="False" Text="GAME OVER" Name="EndBox" Panel.ZIndex="999" Canvas.Left="262.5" Canvas.Top="168.02" HorizontalAlignment="Center" Height="98" VerticalAlignment="Center" Width="275" FontSize="48" IsReadOnly="True" Background="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Red"></TextBox>
+        <TextBox IsEnabled="False" Visibility="Hidden" Focusable="False" Text="High Score: 0" Name ="HighScoreBox" Panel.ZIndex="999" Canvas.Left="344" Canvas.Top="271.02" HorizontalAlignment="Center" VerticalAlignment="Center" Width="112" Height="23" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+        <Button IsEnabled="False" Visibility="Hidden" Name="EndButton" Click="ShutdownWindow" Content="Close Game" Height="25" Width="92" Canvas.Left="354" Canvas.Top="374.4" HorizontalAlignment="Center" VerticalAlignment="Top"></Button>
+    </Canvas>
+</Window>

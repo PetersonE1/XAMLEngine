@@ -1,0 +1,18 @@
+<VSTemplate Version="1.0.0" Type="Project"
+    xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+    <TemplateData>
+        <Name>XAMLEngine</Name>
+        <Description>A simple game engine using XAML and CSharp</Description>
+        <Icon>icon.ico</Icon>
+        <ProjectType>WPF</ProjectType>
+        <ProjectSubType>CSharp</ProjectSubType>
+        <DefaultName>XAMLEngine</DefaultName>
+    </TemplateData>
+    <TemplateContent>
+        <Project File="XAMLEngine.csproj">
+            <ProjectItem>icon.ico</ProjectItem>
+            <ProjectItem OpenInEditor="true">Default.aspx</ProjectItem>
+            <ProjectItem>Default.aspx.cs</ProjectItem>
+        </Project>
+    </TemplateContent>
+</VSTemplate>
