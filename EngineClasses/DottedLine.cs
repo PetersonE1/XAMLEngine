@@ -9,7 +9,7 @@ using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
-namespace XAMLEngine.EngineClasses
+namespace XAMLEngine
 {
     public class DottedLine
     {

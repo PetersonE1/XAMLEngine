@@ -9,7 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Shapes;
 
-namespace XAMLEngine.EngineClasses
+namespace XAMLEngine
 {
     public static class Extensions
     {

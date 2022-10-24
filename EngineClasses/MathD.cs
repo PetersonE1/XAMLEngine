@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace XAMLEngine.EngineClasses
+namespace XAMLEngine
 {
     public static class MathD
     {        
