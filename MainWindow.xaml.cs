@@ -191,8 +191,8 @@ namespace XAMLEngine
         {
             this.Dispatcher.Invoke(() =>
             {
-                Input.MouseClicked = true;
-                Input.MouseHeld = true;
+                Input.MouseClickedLeft = true;
+                Input.MouseHeldLeft = true;
             });
         }
 
@@ -200,8 +200,26 @@ namespace XAMLEngine
         {
             this.Dispatcher.Invoke(() =>
             {
-                Input.MouseReleased = true;
-                Input.MouseHeld = false;
+                Input.MouseReleasedLeft = true;
+                Input.MouseHeldLeft = false;
+            });
+        }
+
+        private void OnMouseRightDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+                Input.MouseClickedRight = true;
+                Input.MouseHeldRight = true;
+            });
+        }
+
+        private void OnMouseRightUp(object sender, MouseButtonEventArgs e)
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+                Input.MouseReleasedRight = true;
+                Input.MouseHeldRight = false;
             });
         }
 

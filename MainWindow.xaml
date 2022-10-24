@@ -8,6 +8,8 @@
         Loaded="ScreenLoaded"
         MouseLeftButtonDown="OnMouseDown"
         MouseLeftButtonUp="OnMouseUp"
+        MouseRightButtonDown="OnMouseRightDown"
+        MouseRightButtonUp="OnMouseRightUp"
         KeyDown="OnKeyDown"
         KeyUp="OnKeyUp"
         Title="MainWindow" Height="450" Width="800">

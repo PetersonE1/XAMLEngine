@@ -13,9 +13,12 @@ namespace XAMLEngine
         public static List<Key> keysPressedThisFrame;
         public static List<Key> keysReleasedThisFrame;
 
-        public static bool MouseHeld = false;
-        public static bool MouseClicked = false;
-        public static bool MouseReleased = false;
+        public static bool MouseHeldLeft = false;
+        public static bool MouseClickedLeft = false;
+        public static bool MouseReleasedLeft = false;
+        public static bool MouseHeldRight = false;
+        public static bool MouseClickedRight = false;
+        public static bool MouseReleasedRight = false;
 
         public static bool IsPressed(Key key)
         {
