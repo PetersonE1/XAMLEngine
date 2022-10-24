@@ -20,7 +20,7 @@ namespace XAMLEngine
         public bool solid = true;
         public SolidColorBrush color;
 
-        private Shape[] placedShapes;
+        private List<Shape> placedShapes;
 
         public DottedLine(Vector2D[] points, SolidColorBrush color, int dots = 5, bool autofill = false, bool solid = true)
         {
@@ -29,6 +29,7 @@ namespace XAMLEngine
             this.autofill = autofill;
             this.solid = solid;
             this.color = color;
+            placedShapes = new List<Shape>();
             UpdateLine();
         }
 
@@ -47,8 +48,9 @@ namespace XAMLEngine
 
         public void UpdateLine()
         {
-            if (placedShapes != null && placedShapes.Length > 0)
-                Manager.canvas.Children.RemoveRange(placedShapes);
+            if (placedShapes.Count > 0)
+                Manager.canvas.Children.RemoveRange(placedShapes.ToArray());
+            placedShapes.Clear();
 
             length = 0d;
             Segment[] segments = new Segment[points.Length - 1];
@@ -62,14 +64,13 @@ namespace XAMLEngine
             {
                 dots = (int)Math.Floor(length / (double)dots);
             }
-            placedShapes = new Shape[dots];
 
-            for (int s = 0; s < placedShapes.Length; s++)
+            for (int s = 0; s < dots; s++)
             {
                 if (solid)
-                    placedShapes[s] = new Ellipse() { Width = 5, Height = 5, Fill = color };
+                    placedShapes.Add(new Ellipse() { Width = 5, Height = 5, Fill = color });
                 else
-                    placedShapes[s] = new Ellipse() { Width = 5, Height = 5, Stroke = color };
+                    placedShapes.Add(new Ellipse() { Width = 5, Height = 5, Stroke = color });
             }
 
             double p = 0d;
@@ -96,6 +97,8 @@ namespace XAMLEngine
                     placement = MathD.RLerp(0, segments[l].length, placement);
                     Vector2D spawnPos = MathD.VLerp(segments[l].point1, segments[l].point2, placement);
 
+                    Debug.WriteLine(placedShapes.Count);
+                    Debug.WriteLine($"i: {i}");
                     Canvas.SetLeft(placedShapes[i], spawnPos.x);
                     Canvas.SetTop(placedShapes[i], spawnPos.y);
 
@@ -103,12 +106,12 @@ namespace XAMLEngine
                 }
                 p += factor;
             }
-            Manager.canvas.Children.AddRange(placedShapes);
+            Manager.canvas.Children.AddRange(placedShapes.ToArray());
         }
 
         public void Remove()
         {
-            Manager.canvas.Children.RemoveRange(placedShapes);
+            Manager.canvas.Children.RemoveRange(placedShapes.ToArray());
         }
     }
 
