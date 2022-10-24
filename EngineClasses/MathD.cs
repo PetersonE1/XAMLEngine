@@ -40,9 +40,9 @@ namespace XAMLEngine.EngineClasses
             return new Vector2D(x, y);
         }
 
-        public static double RLerp(double point1, double point2, double value)
+        public static double RLerp(double x, double y, double value)
         {
-            return (value - point1) / (point2 - point1);
+            return (value - x) / (y - x);
         }
     }
 }
