@@ -17,14 +17,18 @@ namespace XAMLEngine
         public int dots;
         public double length = 0;
         public bool autofill = false;
+        public bool solid = true;
+        public SolidColorBrush color;
 
         private Shape[] placedShapes;
 
-        public DottedLine(Vector2D[] points, int dots = 5, bool autofill = false)
+        public DottedLine(Vector2D[] points, SolidColorBrush color, int dots = 5, bool autofill = false, bool solid = true)
         {
             this.points = points;
             this.dots = dots;
             this.autofill = autofill;
+            this.solid = solid;
+            this.color = color;
             UpdateLine();
         }
 
@@ -62,7 +66,10 @@ namespace XAMLEngine
 
             for (int s = 0; s < placedShapes.Length; s++)
             {
-                placedShapes[s] = new Ellipse() { Width = 5, Height = 5, Fill = Brushes.DarkGray };
+                if (solid)
+                    placedShapes[s] = new Ellipse() { Width = 5, Height = 5, Fill = color };
+                else
+                    placedShapes[s] = new Ellipse() { Width = 5, Height = 5, Stroke = color };
             }
 
             double p = 0d;
