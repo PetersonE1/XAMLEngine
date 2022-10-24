@@ -180,8 +180,10 @@ namespace XAMLEngine
                         entity.LateUpdate();
                     }
                 }
-                Input.MouseClicked = false;
-                Input.MouseReleased = false;
+                Input.MouseClickedLeft = false;
+                Input.MouseReleasedLeft = false;
+                Input.MouseClickedRight = false;
+                Input.MouseReleasedRight = false;
                 Input.keysPressedThisFrame.Clear();
                 Input.keysReleasedThisFrame.Clear();
             });
