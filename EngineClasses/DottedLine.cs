@@ -60,12 +60,13 @@ namespace XAMLEngine
                 length += segments[i].length;
             }
 
+            int space = dots;
             if (autofill)
             {
-                dots = (int)Math.Floor(length / (double)dots);
+                space = (int)Math.Floor(length / (double)dots);
             }
 
-            for (int s = 0; s < dots; s++)
+            for (int s = 0; s < space; s++)
             {
                 if (solid)
                     placedShapes.Add(new Ellipse() { Width = 5, Height = 5, Fill = color });
@@ -74,8 +75,8 @@ namespace XAMLEngine
             }
 
             double p = 0d;
-            double factor = 1d / (double)(dots - 1);
-            for (int i = 0; i < dots; i++)
+            double factor = 1d / (double)(space - 1);
+            for (int i = 0; i < space; i++)
             {
                 double placement = p * length;
                 for (int l = 0; true; l++)
@@ -97,8 +98,6 @@ namespace XAMLEngine
                     placement = MathD.RLerp(0, segments[l].length, placement);
                     Vector2D spawnPos = MathD.VLerp(segments[l].point1, segments[l].point2, placement);
 
-                    Debug.WriteLine(placedShapes.Count);
-                    Debug.WriteLine($"i: {i}");
                     Canvas.SetLeft(placedShapes[i], spawnPos.x);
                     Canvas.SetTop(placedShapes[i], spawnPos.y);
 
