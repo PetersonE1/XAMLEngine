@@ -20,7 +20,7 @@ namespace XAMLEngine
             string raw_data = File.ReadAllText("save_data.enginedata");
             if (raw_data != null && raw_data.Length > 0)
             {
-                foreach (string[] entry in raw_data.Split(';').Select(s => s.Split(',')).ToArray())
+                foreach (string[] entry in raw_data.Split('\n').Select(s => s.Split(':')).ToArray())
                 {
                     data.Add(entry[0], entry[1]);
                 }
@@ -29,8 +29,8 @@ namespace XAMLEngine
 
         public static void OnQuit(object sender, ExitEventArgs e)
         {
-            string raw_data = string.Join(';', data.Select(n => $@"{n.Key},{n.Value}").ToArray());
-            File.WriteAllText("save_data.jc", raw_data);
+            string raw_data = string.Join('\n', data.Select(n => $@"{n.Key}:{n.Value}").ToArray());
+            File.WriteAllText("save_data.enginedata", raw_data);
         }
 
         public static void SetValue(string key, string value)
